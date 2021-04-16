@@ -43,6 +43,16 @@ public class ServicesRest {
     }
 
     @Get(single = true)
+    public Mono<List<UsersDto>> getUsersById(Integer id) {
+        HttpRequest httpRequest = HttpRequest.GET("/users?id="+id);
+        Flowable<List<UsersDto>> response = client.retrieve(httpRequest, Object.class);
+        List<UsersDto> dao = response.blockingFirst();
+        Maybe<List<UsersDto>> usersDtoMaybe = response.firstElement();
+        Mono<List<UsersDto>> data = RxJava2Adapter.maybeToMono(usersDtoMaybe);
+        return data;
+    }
+
+    @Get(single = true)
     public Mono<List<PhotosDto>> getPhotos() {
         HttpRequest httpRequest = HttpRequest.GET("/photos");
         Flowable<List<PhotosDto>> response = client.retrieve(httpRequest, Object.class);

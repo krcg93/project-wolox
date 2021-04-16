@@ -4,6 +4,7 @@ public class SharedAlbumsDto {
     private Integer userId;
     private Integer albumId;
     private Boolean seeAlbum;
+    private Boolean writeAlbum;
 
     public Integer getUserId() {
         return userId;
@@ -27,5 +28,13 @@ public class SharedAlbumsDto {
 
     public void setSeeAlbum(Boolean seeAlbum) {
         this.seeAlbum = seeAlbum;
+    }
+
+    public Boolean getWriteAlbum() {
+        return writeAlbum;
+    }
+
+    public void setWriteAlbum(Boolean writeAlbum) {
+        this.writeAlbum = writeAlbum;
     }
 }
