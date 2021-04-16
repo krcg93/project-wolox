@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: retrive.transaction
+defaultPackage: project.wolox
 testFramework: junit
 sourceLanguage: java
 buildTool: gradle
